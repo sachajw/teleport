@@ -4,7 +4,7 @@ services:
   # one is a single-node Teleport cluster called "one" (runs all 3 roles: proxy, auth and node)
   #
   one:
-    image: quay.io/gravitational/teleport:latest
+    image: quay.io/gravitational/teleport:4.3.5
     container_name: one
     command: ${CONTAINERHOME}/build/teleport start -d -c ${CONTAINERHOME}/docker/one.yaml
     mem_limit: 300m
@@ -28,7 +28,7 @@ services:
   # one-node is a single-node Teleport cluster called "one" (runs all 3 roles: proxy, auth and node)
   #
   one-node:
-    image: quay.io/gravitational/teleport:latest
+    image: quay.io/gravitational/teleport:4.3.5
     container_name: one-node
     command: ${CONTAINERHOME}/build/teleport start -d -c ${CONTAINERHOME}/docker/one-node.yaml
     env_file: env.file
@@ -44,7 +44,7 @@ services:
   # one-sshd is a single-node Teleport cluster called "one" (runs all 3 roles: proxy, auth and node)
   #
   one-sshd:
-    image: quay.io/gravitational/teleport:latest
+    image: quay.io/gravitational/teleport:4.3.5
     container_name: one-sshd
     command: /usr/bin/start-sshd.sh
     env_file: env.file
@@ -61,7 +61,7 @@ services:
   # one-proxy is a second xproxy of the first cluster
   #
   one-proxy:
-    image: quay.io/gravitational/teleport:latest
+    image: quay.io/gravitational/teleport:4.3.5
     container_name: one-proxy
     command: ${CONTAINERHOME}/build/teleport start -d -c ${CONTAINERHOME}/docker/one-proxy.yaml
     mem_limit: 300m
@@ -83,7 +83,7 @@ services:
   #
   two-auth:
     mem_limit: 300m
-    image: quay.io/gravitational/teleport:latest
+    image: quay.io/gravitational/teleport:4.3.5
     container_name: two-auth
     command: ${CONTAINERHOME}/build/teleport start -d -c ${CONTAINERHOME}/docker/two-auth.yaml --insecure
     env_file: env.file
@@ -99,7 +99,7 @@ services:
   #
   two-proxy:
     mem_limit: 300m
-    image: quay.io/gravitational/teleport:latest
+    image: quay.io/gravitational/teleport:4.3.5
     container_name: two-proxy
     command: ${CONTAINERHOME}/build/teleport start -d -c ${CONTAINERHOME}/docker/two-proxy.yaml
     env_file: env.file
@@ -118,7 +118,7 @@ services:
   #
   two-node:
     mem_limit: 300m
-    image: quay.io/gravitational/teleport:latest
+    image: quay.io/gravitational/teleport:4.3.5
     container_name: two-node
     command: ${CONTAINERHOME}/build/teleport start -d -c ${CONTAINERHOME}/docker/two-node.yaml
     env_file: env.file
